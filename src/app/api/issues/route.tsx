@@ -7,8 +7,8 @@ const prisma = new PrismaClient();
 
 // Define the schema for creating an issue
 const createIssueSchema = z.object({
-    title: z.string().min(1).max(255),
-    description: z.string().min(1),
+    title: z.string().min(1,"title is req").max(255),
+    description: z.string().min(1,"description is req"),
 });
 
 export async function POST(request: NextRequest) {
